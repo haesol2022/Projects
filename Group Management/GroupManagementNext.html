@@ -1,0 +1,269 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Group Management</title>
+        
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@700&display=swap');
+
+.body{  /* 배경색을 설정하는 클래스 */
+    background : linear-gradient(180deg, #f5f7fa, #a3c1ee); 
+}
+
+header {  /* 고정바를 설정하는 클래스 */
+    height: 40px;
+    background-image: url('texture6.jpg');
+    opacity: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+  .content-wrap{
+    position: fixed;
+    margin-top: 130px;
+    margin-left: 450px;
+    width: 1000px;
+    height: 800px;
+    border-radius: 10px;
+    overflow: hidden; /* 넘치는 자식 요소를 보이지 않게 한다 */
+    background-image: linear-gradient(to top, #e7e9f3 0%, #e3eeff 99%, #e3eeff 100%);
+    z-index: 1;
+    box-shadow: 20px 10px 30px rgb(136, 136, 136);
+  }
+
+  .content-left{
+    display: fixed;
+    background-image: linear-gradient(40deg, #606c88, #3f4c6b);
+    color:white;
+    float: left;
+    opacity: 90%;
+    width: 350px;
+    height: 800px;
+    padding: 90px 20px 20px 0;
+  }
+
+  .main-wrap{ /* 큰 날짜, 숫자와 클릭된 날짜와 요일을 넣을 공간  maindat, maindate 포함*/
+    text-align: center;
+    margin: 20px 0 0 0;
+  }
+
+  .main-day{
+    text-shadow: -4px 0 #828e92;
+    font-family: 'DM Serif Display', serif;
+    font-size: 50px;
+  }
+
+  .main-date{
+    text-shadow: -4px 0 #828e92;
+    font-family: 'DM Serif Display', serif;
+    font-size: 130px;
+    margin: 20px 0;
+  }
+
+  .todo-wrap{ /* 투두리스트 타이틀과 입력 받는 부분, 입력 버튼 등을 넣을 공간 todotilte, inputbox, inputdata 포함 */
+    padding: 0 0 0 40px;
+  }
+
+  .todo-title{
+    font-family: 'DM Serif Display', serif;
+    font-size: 25px;
+    font-weight: 100;
+    margin: 0 0 20px 0;
+  }
+
+  .input-box{ /* input 입력 값(투두리스트) 받는 클래스*/
+    width: 70%;
+    height: 5%;
+    background: #374463;
+    color: white;
+    line-height : normal;
+    padding: .8em .5em 0 0;
+    font-family: 'Gowun Batang', serif;
+    font-size: 16px;
+    border: 0; 
+    border-bottom: 1.5px dashed white;
+    border-radius: 0; 
+    outline-style: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none;
+  }
+
+  .input-data{ /* input 버튼 클래스 */
+    cursor: pointer;
+    font-family: 'Gowun Batang', serif;
+    font-size: 13px;
+    padding: 10px;
+    margin: 20px 0 30px 0;
+    background: white;
+    border: none;
+    background: #526dad;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  .input-data:hover{
+    background: #d4caca;
+    color: #0b0809;
+
+  }
+  .input-list > div{
+    font-family: 'Gowun Batang', serif;
+    margin-bottom: 3%;
+    font-size: 18px;
+    width: 70%;
+    float: left;
+    color: #ffffff;
+  }
+
+.input-list > .checked{
+  color: #f5f7fa;
+  text-decoration: line-through
+}
+
+  .del-data{ /* 입력받은 데이터를 삭제하는 버튼 */
+    display: block;
+    color: white;
+    float: left;
+    width: 15%;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 10px;
+    background: #704956;
+    border: none;
+    border-radius: 10px;
+  }
+  .content-right{ /* 캘린더를 담을 공간 table tr td 포함 */
+    float: left;
+    width: 560px;
+    height: 600px;
+    padding: 100px 20px 20px 20px;
+  }
+  .sun{ /* 일요일 글자 색상 변경 클래스 */
+    font-family: 'Domine', serif;
+    color:#e43737;
+  }
+  .sat{ /* 토요일 글자 색상 변경 클래스 */
+    font-family: 'Domine', serif;
+    color:#3421c0;
+  }
+  .content-right table tr td{ /* 달력 클래스 */
+    font-family: 'Domine', serif;
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .active{ /* 클릭에 따라 날짜를 적용하는 클래스 */
+    background-image: linear-gradient(40deg, #606c88, #3f4c6b);
+    border-radius: 50%;
+    color: #ffffff;
+  }
+
+  ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;  /* 글자를 전부 대문자로 변경할 때 사용 */
+}
+
+li {
+    display: inline-block;
+    width: 150px;
+    background-color: #000;
+    padding: 10px;
+    transition: background-color 0.2s; margin-left: 0.5s;
+    position: relative;
+    top: 50px;
+    left: 1700px;
+}
+
+li:hover{
+    background-color: #3f4c6b;
+    margin-left: 13px;
+}
+
+</style>
+
+<body class="body">
+
+<header></header>
+
+<nav>
+    <ul>
+        <a href="GroupManagementMain.html"><li>Home</li></a>
+        <a href="GroupManagementPassword.html"><li>Set PassWord</li></a>
+        <a href="GroupManagementTimer.html"><li>Timer</li></a>
+
+    </ul>
+</nav>
+
+    <div class="content-wrap">
+      <div class="content-left">
+        <div class="main-wrap">
+          <div id="main-day" class="main-day"></div>
+          <div id="main-date" class="main-date"></div>
+        </div>
+        <div class="todo-wrap">
+            <div class="todo-title">Todo List</div>
+            <div class="input-wrap">
+              <input type="text" placeholder="please write here!!" id="input-box" class="input-box">
+              <button type="button" id="input-data" class="input-data">INPUT</button>
+              <div id="input-list" class="input-list"></div>
+            </div>
+          </div>
+      </div>
+      <div class="content-right">
+        <table id="calendar" style="text-align: center;">
+          <thead>
+            <tr class="btn-wrap clearfix">
+              <td>
+                <label id="prev">
+                    &#60;
+                </label>
+              </td>
+              <td style="text-align: center; font-size: 23px;" id="current-year-month" colspan="5"></td>
+              <td>
+                <label id="next">
+                    &#62;
+                </label>
+              </td>
+            </tr>
+            <tr>
+                <td class = "sun" style="text-align: center;">Sun</td>
+                <td style="text-align: center;">Mon</td>
+                <td style="text-align: center;">Tue</td>
+                <td style="text-align: center;">Wed</td>
+                <td style="text-align: center;">Thu</td>
+                <td style="text-align: center;">Fri</td>
+                <td class= "sat" style="text-align: center;">Sat</td>
+              </tr>
+          </thead>
+          <tbody id="calendar-body" class="calendar-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <img src="pic/bubble4.png" alt="It's bubble4" style="z-index: -2; margin-top: 70px; margin-left: 1000px; opacity: 30%; position: fixed; width: 1100px; height: 1000px;">
+    <img src="pic/bubble5.png" alt="It's bubble5" style="z-index: -2; margin-top: 30px; opacity: 40%; position: fixed; width: 1100px; height: 1100px;">
+    <img src="pic/paper.png" alt="It's paper" style="z-index: -1; margin-top: 50px; margin-left: 230px; width: 700px; height: 800px; position: fixed;">
+
+
+      <script type="text/javascript" src="js/GroupManagementNext.js"></script>
+
+</body>
+
+</head>
+</html>

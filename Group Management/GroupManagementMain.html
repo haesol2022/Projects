@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Group Management</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
+.body{ /* 전체 배경 설정용 클래스 */
+    background : linear-gradient(10deg, #f5f7fa, #c3cfe2);
+}
+
+.nothing-font{  /* 제목 폰트 및 크기 설정용 클래스 */
+    font-family: 'Nothing You Could Do', cursive; /* url로 불러온 폰트 지정 */
+    text-align: center;
+    text-shadow: -7px 0 #b1b4d1, 0 7px #b1b4d1, 7px 0 #eeeeee, 0 -7px #eeeeee;  /* 글씨 테두리 설정 */
+    z-index: 1;  /* 글씨 앞/뒤 배치 설정 */
+    margin: 175px 2940px;
+    position: fixed; top: 0;
+}
+
+.nothing-font-emoji{  /* 제목 옆 이모티콘용 클래스 */
+    font-family:'Nothing You Could Do', cursive;
+    text-align: center;
+    text-shadow: -3px 0 #b1b4d1, 0 3px #b1b4d1, 3px 0 #eeeeee, 0 -3px #eeeeee; 
+    z-index: 1;
+    margin: 455px 3960px;
+    position: fixed; top: 0;
+}
+
+.gowun-font{  /* 한글 안내문 설정용 클래스 */
+    width: 1800px;
+    display: inline-block; /* span 태그로 제작, span은 inline 속성을 가지고 있어서 이동이 불가능, 따라서 인라인 해제를 위해 display를 inline-block으로 변경 */
+    font-family: 'Gowun Batang', serif;
+    text-shadow: -2px 0 #b1b4d1, 0 2px #b1b4d1, 2px 0 #eeeeee, 0 -2px #eeeeee; 
+    z-index: 1;
+    position: fixed; top: 0;
+}
+
+.roundcircle {  /* 제목 바깥 동그라미용 클래스 */
+    width: 1350px;
+    height: 680px;
+    background-color: white;
+    opacity: 60%; /* 투명도 지정 */
+    border-radius: 50%; /* 테두리를 둥글게 변경 */
+    z-index: -1;
+    margin: 130px 2858px;
+    position: fixed; top: 0;
+
+}
+
+.roundcircle2 { /* 제목 바깥 두 번째 동그라미용 클래스 */
+    width: 1500px;
+    height: 800px;
+    background-image: url('texture6.jpg'); /* 동그라미에 이미지 삽입 */
+    border: 8px double #2e3657;
+    opacity: 50%;
+    border-radius: 50%;
+    z-index: -2;
+    margin: 70px 2770px;
+    position: fixed; top: 0;
+}
+
+
+.InnerCircle {
+    width: 1400px;
+    height: 1300px;
+    border-radius: 30%;
+    position: fixed;
+    background-color: rgb(207, 223, 231);
+    z-index: 2;
+    box-shadow: 10px 10px 10px 10px inset rgb(142, 170, 184);
+}
+
+div InnerCircle :hover {
+    opacity: 80%;
+}
+
+</style>
+
+<body class="body">
+
+<div class="roundcircle"></div>
+<div class="roundcircle2"></div>
+
+<p class="nothing-font" style="font-size: 180px; color:#2e3657;" >
+Group<br>Management</p>
+
+<p class="nothing-font-emoji" style="font-size: 150px; color: #2e3657;">🖋</p>
+
+
+<hr width="100%" color="899ac2" size="2" style="z-index: -1; margin-top: 950px; position: fixed;">
+
+<span class="gowun-font" style="font-size: 70px; color: #2e3657; margin: 1000px 2700px;">그룹 관리를 원하신다면 우측 상단의 아이콘을 클릭해 주세요.</span>
+
+<a href="GroupManagementPassword.html">
+    <img src="pic/lock.png" alt="It's calendar" style="width: 450px; height: 450px; margin-top: 60px; margin-left: 6300px; position: fixed; opacity: 90%;">
+</a>
+
+<div class="InnerCircle" style="margin-top: 1650px; margin-left: 550px;"></div>
+<div class="InnerCircle" style="margin-top: 1650px; margin-left: 2800px;"></div>
+<div class="InnerCircle"style="margin-top: 1650px; margin-left: 4950px;"></div>
+
+<img src="pic/lock2.png" alt="It's lock" style="width: 700px; height: 700px; z-index: 4; margin-top: 1900px; margin-left: 900px; position: fixed; opacity: 80%;">
+<img src="pic/spring-calendar.png" alt="It's calendar" style="width: 700px; height: 700px; z-index: 4; margin-top: 1900px; margin-left: 3150px; position: fixed; opacity: 80%;">
+<img src="pic/time.png" alt="It's timer" style="width: 700px; height: 700px; z-index: 4; margin-top: 1900px; margin-left: 5300px; position: fixed; opacity: 80%;">
+
+<img src="pic/leaf3.png" alt="It's leaf3" style="z-index: -2; opacity: 80%; margin-top: 500px; position: fixed; height: 2500px;">
+<img src="pic/leaf6.png" alt="It's leaf6" style="z-index: -2; opacity: 90%; margin-top: 2150px; position: fixed; width: 2800px;">
+<img src="pic/leaf7.png" alt="It's leaf7" style="z-index: -2; opacity: 90%; margin-top: 500px; margin-left: 4700px; position: fixed; width: 3000px; height: 3500px;">
+<img src="pic/flower4.png" alt="It's flower4" style="z-index: -2; margin-left: 4620px; position: fixed; width: 2200px;">
+<img src= "pic/butterfly2.png" alt="It's butterfly2" style="z-index: -2; opacity: 70%; margin-top: 800px; margin-left: 50px; width: 2000px; height: 1500px;">
+
+</body>
+</head> 
+
+</html>
